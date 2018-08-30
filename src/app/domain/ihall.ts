@@ -1,3 +1,7 @@
 export interface IHall {
-  code: string;
+
+floor: number ;
+number: number;
+lengthField: number;
+widthField: number;
 }
