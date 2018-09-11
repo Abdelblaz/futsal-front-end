@@ -1,6 +1,7 @@
 import { IHall } from './ihall';
 
 export interface IPlace {
+id: number;
 name: string;
 city: string;
 locality: string;

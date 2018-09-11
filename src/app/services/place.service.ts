@@ -8,12 +8,22 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PlaceService {
 
-  URL = 'http://localhost:8080/futsal/';
+  URL = 'http://localhost:8080/places/';
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _Http: HttpClient) { }
 
-  addHall(place: IPlace): Observable<any> {
 
-    return this._http.post(this.URL, place);
+
+  getPlaces(): Observable<IPlace[]> {
+    return this._Http.get<IPlace[]>(this.URL);
+  }
+
+  getPlace(id: string): Observable<IPlace> {
+   return this._Http.get<IPlace>(this.URL + id);
+ }
+
+  getPlaceByName(name: string): Observable<IPlace> {
+    console.log ('Appel du REST : ' + this.URL + name);
+    return this._Http.get<IPlace>(this.URL + name);
   }
 }

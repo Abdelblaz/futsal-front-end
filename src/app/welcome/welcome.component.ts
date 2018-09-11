@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IPlace } from '../domain/iplace';
+import { PlaceService } from '../services/place.service';
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+listPlace: IPlace[];
+
+  constructor(private _service: PlaceService) { }
 
   ngOnInit() {
+    this._service.getPlaces().subscribe(
+      resp => this.listPlace = resp,
+      erreur => console.log('ATTENTION Il y a l\'erreur : ' + erreur));
   }
 
 }

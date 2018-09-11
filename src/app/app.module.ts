@@ -10,12 +10,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { HallComponent } from './hall/hall.component';
 import { RegistrationPlaceComponent } from './registration-place/registration-place.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetailPlaceComponent } from './detail-place/detail-place.component';
+import { DetailHallComponent } from './detail-hall/detail-hall.component';
 
 const routes: Route[] = [
   {'path': 'welcom', 'component': WelcomeComponent, pathMatch: 'full'},
   {'path': 'inscription', 'component': RegistrationManagerComponent},
   {'path': 'ajoutsalle', 'component': HallComponent},
   {'path': 'ajoutsociete', 'component': RegistrationPlaceComponent},
+  {'path': 'detailplace/:id', 'component': DetailPlaceComponent},
   {'path': '', redirectTo: '/welcom', pathMatch: 'full'}
 
 ];
@@ -29,7 +32,9 @@ const routes: Route[] = [
     RegistrationManagerComponent,
     WelcomeComponent,
     HallComponent,
-    RegistrationPlaceComponent
+    RegistrationPlaceComponent,
+    DetailPlaceComponent,
+    DetailHallComponent
   ],
   imports: [
     BrowserModule,

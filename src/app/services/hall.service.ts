@@ -9,14 +9,20 @@ import { Observable } from '../../../node_modules/rxjs';
 })
 export class HallService {
 
-  URL = 'http://localhost:8080/';
+  URL = 'http://localhost:8080/places/hall/';
 
   constructor(private _http: HttpClient) { }
+
+  getHall(id: string): Observable<IHall[]> {
+    return this._http.get<IHall[]>(this.URL + id);
+  }
 
 
   addHall(hall: IHall): Observable<any> {
 
     return this._http.post(this.URL, hall);
   }
+
+
 
 }
